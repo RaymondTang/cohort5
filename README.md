@@ -84,3 +84,89 @@ git config --global user.email
 - If pyenv commands are not found, restart your terminal or run `source ~/.zshrc`
 - For Python installation issues, ensure you have the latest Xcode command line tools: `xcode-select --install`
 
+### Windows Installation Sequence
+
+#### Prerequisites
+- Windows 10/11 system
+- PowerShell or Command Prompt access
+- Internet connection
+- Administrator privileges
+
+#### 1. Install Windows Terminal
+Install Windows Terminal using winget:
+```powershell
+winget install Microsoft.WindowsTerminal
+```
+
+#### 2. Install Git
+Install Git for Windows using winget:
+```powershell
+winget install Git.Git
+```
+
+After installation, restart your terminal or open a new PowerShell window to ensure Git is in your PATH.
+
+#### 3. Install pyenv-win
+Install pyenv-win (Python version manager for Windows) using the official PowerShell installer:
+```powershell
+Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/pyenv-win/pyenv-win/master/pyenv-win/install-pyenv-win.ps1" -OutFile "./install-pyenv-win.ps1"; &"./install-pyenv-win.ps1"
+```
+
+This will automatically:
+- Download and install pyenv-win to `%USERPROFILE%\.pyenv\pyenv-win`
+- Configure the necessary environment variables
+- Add pyenv to your PATH
+
+Restart your terminal or open a new PowerShell window to ensure pyenv is available.
+
+#### 4. Install Python 3.12
+Install the latest Python 3.12 version using pyenv:
+```powershell
+pyenv install 3.12
+```
+
+#### 5. Set Python 3.12 as Global Default
+Activate Python 3.12 as your global Python version:
+```powershell
+pyenv global 3.12
+```
+
+Verify the installation:
+```powershell
+python --version
+```
+
+#### 6. Install Python UV
+Install UV using the official installer:
+```powershell
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+#### 7. Install Visual Studio Code
+Install VS Code using winget:
+```powershell
+winget install Microsoft.VisualStudioCode
+```
+
+#### 8. Configure Git
+Set up your Git username and email:
+```powershell
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+```
+
+### Verification
+Verify your setup by running:
+```powershell
+python --version
+pyenv version
+git config --global user.name
+git config --global user.email
+uv --version
+```
+
+### Troubleshooting
+- If you encounter permission issues, ensure you're running PowerShell as Administrator
+- If pyenv commands are not found, restart your terminal or check your PATH environment variable
+- For Python installation issues, ensure Windows Defender or antivirus isn't blocking the installation
+- If winget is not available, install it from the Microsoft Store or download from GitHub
