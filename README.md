@@ -57,13 +57,19 @@ Verify the installation:
 python --version
 ```
 
-#### 7. Install Visual Studio Code
+#### 7. Install Python UV
+Install UV using the official installer:
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+#### 8. Install Visual Studio Code
 Install VS Code using Homebrew:
 ```bash
 brew install --cask visual-studio-code
 ```
 
-#### 8. Configure Git
+#### 9. Configure Git
 Set up your Git username and email:
 ```bash
 git config --global user.name "Your Name"
@@ -77,6 +83,7 @@ python --version
 pyenv version
 git config --global user.name
 git config --global user.email
+uv --version
 ```
 
 ### Troubleshooting
